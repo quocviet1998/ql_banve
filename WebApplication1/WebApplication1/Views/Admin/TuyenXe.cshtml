@@ -13,10 +13,19 @@
             <td><h4>Điểm Đi</h4></td>
             <td><h4>Điểm Đến</h4></td>
             <td><h4>Bảng Gía</h4></td>
-            <td><h4>Hành động</h4></td>
         </tr>
-        @Html.Raw(ViewBag.View)
+       @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
+            {
         <tr>
+            <td>@ViewBag.result.Rows[i][0]</td>
+            <td>@ViewBag.result.Rows[i][1]</td>
+            <td>@ViewBag.result.Rows[i][2]</td>
+            <td>@ViewBag.result.Rows[i][3]</td>
+            <td>@ViewBag.result.Rows[i][4]</td>
+            <td></td>
+        </tr>
+       }
+        @*<tr>
             <td>
                 <input id="txt_matuyen" type="text" /></td>
             <td
@@ -31,8 +40,8 @@
                 <input id="Button1" type="button" value="Thêm" />
                 <input id="Button1" type="button" value="Xóa" />
                 <input id="Button1" type="button" value="Sửa" /></td>
-        </tr>
+        </tr>*@
         
-    </tableid="table">
+    </table>
 </div>
 

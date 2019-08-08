@@ -9,15 +9,15 @@ namespace WebApplication1.Models
     {
         //public QL_BanVeXeEntities e;
 
-        //public Nullable<int> MACHUYEN { set; get; }
+        public Nullable<int> MACHUYEN { set; get; }
 
-        //public char TENCHUYEN { set; get; }
+        public char TENCHUYEN { set; get; }
 
-        //public int MAVE { set; get; }
+        public string MAVE { set; get; }
 
-        //public string HOTEN { set; get; }
+        public string HOTEN { set; get; }
 
-        //public int SOGHE { set; get; }
+        public int SOGHE { set; get; }
 
         //public Chuyen()
         //{

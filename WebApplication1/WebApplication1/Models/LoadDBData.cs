@@ -148,10 +148,31 @@ namespace WebApplication1.Models
             }
         }
 
+        public DataTable EmptySeat(string maChuyen)
+        {
+            try
+            {
+                return db.getDataSet("sp_getGheDaChon", maChuyen).Tables[0];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
         public DataTable loadTable(string tableName)
         {
             return db.loadTable(tableName);
+        }
+
+        public DataTable queryTable(string query)
+        {
+            return db.queryTable(query);
+        }
+
+        public int SoGhe(string maChuyen)
+        {
+            return db.SoGhe(maChuyen);
         }
 
     }

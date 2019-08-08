@@ -14,12 +14,22 @@
             <td><h4>CMND</h4></td>
             <td><h4>Điện Thoại</h4></td>
             <td><h4>Email</h4></td>
-            <td><h4>Hành động</h4></td>
+            @*<td><h4>Hành động</h4></td>*@
         </tr>
-
-        @Html.Raw(ViewBag.View)
-
-        <tr>       
+        @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
+            {
+            <tr>
+                <td>@ViewBag.result.Rows[i][0]</td>
+                <td>@ViewBag.result.Rows[i][3]</td>
+                <td>@ViewBag.result.Rows[i][4]</td>
+                <td>@ViewBag.result.Rows[i][5]</td>
+                <td>@ViewBag.result.Rows[i][6]</td>
+                <td>@ViewBag.result.Rows[i][7]</td>
+                <td>@ViewBag.result.Rows[i][8]</td>
+                <td>@ViewBag.result.Rows[i][9]</td> 
+            </tr>
+        }
+        @*<tr>       
             <td>
                 <input id="txt_maKH" type="text" /></td> 
             <td>
@@ -27,20 +37,20 @@
             <td>
                 <input id="txt_ngaysinhKH" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_gioitinhKH" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_diachiKH" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_CMND_KH" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_dienthoaiKH" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_EMAIL_KH" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
                 <input id="Button1" type="button" value="Thêm" />
                 <input id="Button1" type="button" value="Xóa" />
                 <input id="Button1" type="button" value="Sửa" /></td>
-        </tr>
+        </tr>*@
         
     </table>
 </div>

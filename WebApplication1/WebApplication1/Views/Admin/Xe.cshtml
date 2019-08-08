@@ -13,11 +13,19 @@
                 <td><h4>Biển Số</h4></td>
                 <td><h4>Số Ghế</h4></td>
                 <td><h4>Mã Loại Xe</h4></td>
-                <td><h4>Hành động</h4></td>
+                @*<td><h4>Hành động</h4></td>*@
             </tr>
-
-            @Html.Raw(ViewBag.View)
-            <tr>
+            @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
+            {
+                <tr>
+                    <td>@ViewBag.result.Rows[i][0]</td>
+                    <td>@ViewBag.result.Rows[i][1]</td> 
+                    <td>@ViewBag.result.Rows[i][2]</td> 
+                    <td>@ViewBag.result.Rows[i][3]</td> 
+                    <td>@ViewBag.result.Rows[i][4]</td>  
+                </tr>   
+            }
+            @*<tr>
                 <td>
                     <input id="txt_matuyen" type="text" />
                 </td>
@@ -37,7 +45,7 @@
                     <input id="Button1" type="button" value="Xóa" />
                     <input id="Button1" type="button" value="Sửa" />
                 </td>
-            </tr>
+            </tr>*@
       
     </table>
 </div>

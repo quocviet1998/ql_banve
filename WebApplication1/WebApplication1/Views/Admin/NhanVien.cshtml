@@ -6,9 +6,9 @@
 <div>
     <table id="table" style="width: 100%; border:1px; background-color:aliceblue">
        <tr style="color: red">
-            @*<td><h4>Mã Nhân Viên</h4></td>*@
+            <td><h4>Mã Nhân Viên</h4></td>
             <td><h4>Tên Đăng Nhập</h4></td>
-            @*<td style="width:50%"><h4>Mật khẩu</h4></td>*@
+            <td><h4>Mật khẩu</h4></td>
             <td><h4>Tên Nhân Viên</h4></td>
             <td><h4>Ngày Sinh</h4></td>
             <td><h4>Gioi Tính</h4></td>
@@ -16,37 +16,49 @@
             <td><h4>CMND</h4></td>
             <td><h4>Điện Thoại</h4></td>
             <td><h4>Email</h4></td>
-            <td><h4>Hành động</h4></td>
+            @*<td><h4>Hành động</h4></td>*@
         </tr>
-
-        @Html.Raw(ViewBag.View)
-
-        <tr>       
-            @*<td>
-                <input id="txt_maNV" type="text" /></td> *@   
+        @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
+            {
+            <tr>
+                <td>@ViewBag.result.Rows[i][0]</td>
+                <td>@ViewBag.result.Rows[i][1]</td>
+                <td>@ViewBag.result.Rows[i][2]</td>
+                <td>@ViewBag.result.Rows[i][3]</td>
+                <td>@ViewBag.result.Rows[i][4]</td>
+                <td>@ViewBag.result.Rows[i][5]</td>
+                <td>@ViewBag.result.Rows[i][6]</td>
+                <td>@ViewBag.result.Rows[i][7]</td>
+                <td>@ViewBag.result.Rows[i][8]</td>
+                <td>@ViewBag.result.Rows[i][9]</td>
+            </tr>
+        }
+        @*<tr>       
+            <td>
+                <input id="txt_maNV" type="text" /></td>    
             <td>
                 <input id="txt_tenDN" type="text" /></td>
-            @*<td>
-                <input id="txt_makhauNV" type="text" /></td>*@
+            <td>
+                <input id="txt_makhauNV" type="text" /></td>
             <td>
                 <input id="txt_tenNV" type="text" /></td>
             <td>
                 <input id="txt_ngaysinhNV" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_gioitinhNV" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_diachiNV" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_CMND" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_dienthoaiNV" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
-                <input id="Text1" type="txt_EMAIL" /></td>
+                <input id="Text1" type="text" /></td>
             <td>
                 <input id="Button1" type="button" value="Thêm" />
                 <input id="Button1" type="button" value="Xóa" />
                 <input id="Button1" type="button" value="Sửa" /></td>
-        </tr>
+        </tr>*@
         
     </table>
 </div>

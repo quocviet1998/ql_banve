@@ -93,7 +93,7 @@ namespace WebApplication1
             DataTable dt = new DataTable();
             try
             {
-                string strCmd = "select* from " + tableName;
+                string strCmd = "select * from " + tableName;
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
@@ -108,6 +108,59 @@ namespace WebApplication1
             catch
             {
                 return null;
+            }
+            finally
+            {
+                close();
+            }
+        }
+
+        public DataTable queryTable(string query)
+        {
+            open();
+            DataTable dt = new DataTable();
+            try
+            {
+                string strCmd = query;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = strCmd;
+                SqlDataAdapter da = new SqlDataAdapter(strCmd, conn);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    return dt;
+                else return null;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                close();
+            }
+        }
+
+        public int SoGhe(string maChuyen)
+        {
+            int i = -1;
+            open();
+            try
+            {
+                string strCmd = "select TONGSOGHE from CHUYENXE, XE  where CHUYENXE.MAXE = XE.MAXE and MACHUYEN = " + maChuyen;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = strCmd;
+                i = int.Parse(cmd.ExecuteScalar().ToString());
+                return i;
+            }
+            catch
+            {
+                return -1;
             }
             finally
             {
