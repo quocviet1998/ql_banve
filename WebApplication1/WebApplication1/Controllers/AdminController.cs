@@ -11,7 +11,7 @@ namespace WebApplication1.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        QL_BanVeXeEntities db = new QL_BanVeXeEntities();
+        //QL_BanVeXeEntities db = new QL_BanVeXeEntities();
         LoadDBData load = new LoadDBData();
         public ActionResult Index()
         {

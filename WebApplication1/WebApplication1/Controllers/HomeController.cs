@@ -36,9 +36,14 @@ namespace WebApplication1.Controllers
 
         public ActionResult SignIn(SigninModels val)
         {
+            return View();
+        }
+
+        public ActionResult SignInCustomer(SigninModels val)
+        {
             var res = db.signin(new string[] { val.tenKH, val.ngaySinh, val.gioiTinh.ToString(), val.diaChi, val.cmnd, val.dienThoai, val.email, val.username, val.password });
             ViewBag.res = res;
-            return View();
+            return RedirectToAction("Login");
         }
 
     }

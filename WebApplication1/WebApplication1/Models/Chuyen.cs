@@ -7,22 +7,22 @@ namespace WebApplication1.Models
 {
     public class Chuyen
     {
-        public QL_BanVeXeEntities e;
+        //public QL_BanVeXeEntities e;
 
-        public Nullable<int> MACHUYEN { set; get; }
+        //public Nullable<int> MACHUYEN { set; get; }
 
-        public char TENCHUYEN { set; get; }
+        //public char TENCHUYEN { set; get; }
 
-        public int MAVE { set; get; }
+        //public int MAVE { set; get; }
 
-        public string HOTEN { set; get; }
+        //public string HOTEN { set; get; }
 
-        public int SOGHE { set; get; }
+        //public int SOGHE { set; get; }
 
-        public Chuyen()
-        {
-            e = new QL_BanVeXeEntities();
-        }
+        //public Chuyen()
+        //{
+        //    e = new QL_BanVeXeEntities();
+        //}
 
     }
 }

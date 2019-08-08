@@ -113,7 +113,6 @@ namespace WebApplication1
             {
                 close();
             }
-            return null;
         }
     }
 }
