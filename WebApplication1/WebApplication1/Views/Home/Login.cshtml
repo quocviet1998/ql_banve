@@ -10,10 +10,10 @@
         Chưa có tài khoản?
         <a href="~/Home/SignIn" class="text-blue" style="font-weight: 700">Đăng ký</a> ngay
     </p>
-    <form method="POST" action="~/Home/Login">
+    <form method="POST" action="~/Home/checkAccount">
         <div class="form-control">
             <label>TÀI KHOẢN</label>
-            <input type="text" name="use_login" value="" autofocus="">
+            <input type="text" name="user_login" value="" autofocus="">
         </div>
         <div class="form-control">
             <label>MẬT KHẨU</label>
@@ -21,6 +21,7 @@
         </div>
         <div class="form-button">
             <div>
+                <p style="color: red">@TempData["temp"]</p>
                 <button type="submit" class="btn btn-primary btn-block btn-flat">ĐĂNG NHẬP</button>
             </div>
         </div>

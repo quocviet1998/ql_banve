@@ -22,19 +22,31 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string str)
         {
-
+            ViewBag.str = str;
             return View();
         }
 
         public ActionResult checkAccount(string user_login, string password)
         {
+           
+            string str = "";
             var res = db.login(new string[] { user_login, password });
+            if (res == 0) {
+                str = "Đăng nhập thất bại! Tên đăng nhập hoặc mật khẩu không chính xác";
+                TempData["temp"] = str;
+            }
+            else if(res == 3)
+            {
+                string[] KH = db.getInfoKH(new string[] { user_login });
+                Session["KH"] = KH;
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Login");
         }
 
-        public ActionResult SignIn(SigninModels val)
+        public ActionResult SignIn()
         {
             return View();
         }
