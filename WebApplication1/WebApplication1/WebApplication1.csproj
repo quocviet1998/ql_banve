@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -238,6 +239,7 @@
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>Driver.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchModels.cs" />
     <Compile Include="Models\SigninModels.cs" />
     <Compile Include="Models\TuyenModels.cs" />
     <Compile Include="Models\TUYENXE.cs">
