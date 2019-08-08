@@ -142,5 +142,30 @@ namespace WebApplication1
                 close();
             }
         }
+
+        public int SoGhe(string maChuyen)
+        {
+            int i = -1;
+            open();
+            try
+            {
+                string strCmd = "select TONGSOGHE from CHUYENXE, XE  where CHUYENXE.MAXE = XE.MAXE and MACHUYEN = " + maChuyen;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = strCmd;
+                i = int.Parse(cmd.ExecuteScalar().ToString());
+                return i;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                close();
+            }
+        }
     }
 }

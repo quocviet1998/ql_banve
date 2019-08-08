@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -15,10 +16,31 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        private SelectList EmptySeat(string maChuyen)
+        {
+            DataTable tableEmptySeat = db.EmptySeat(maChuyen);
+            int soGhe = db.SoGhe(maChuyen);
+            List<int> listEmptySeat = new List<int>();
+            for (int i = 0; i < soGhe; i++)
+            {
+                if (tableEmptySeat.Rows.Contains(i))
+                    break;
+                else
+                   listEmptySeat.Add(i+1);
+            }
+            SelectList select = new SelectList(listEmptySeat);
+            return select;
+        }
+
         public ActionResult Search(SearchModels key)
         {
 
-            ViewBag.result = db.search(new string[] { key.startPoint == "" ? "Hồ Chí Minh" : key.startPoint, key.endPoint, key.startDate });
+            DataTable rs = db.search(new string[] { key.startPoint == "" ? "Hồ Chí Minh" : key.startPoint, key.endPoint, key.startDate });
+            for (int i = 0; i < rs.Rows.Count; i++)
+            {
+                rs.Rows[i][8] = EmptySeat(rs.Rows[i][8].ToString());
+            }
+            ViewBag.result = rs;
             return View();
         }
 
