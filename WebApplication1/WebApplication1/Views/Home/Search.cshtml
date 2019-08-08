@@ -3,147 +3,44 @@
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*@model WebApplication1.Models*@
 
 <table class="table table-bordered text-center" id="chuyenXe">
     <thead>
         <tr>
             <th>Ngày đi</th>
             <th>Điểm đi</th>
-            <th>Thời gian khởi hảnh</th>
+            <th>Thời gian khởi hành</th>
             <th>Thời gian dự kiến</th>
             <th>Điểm đến</th>
             <th>Thời gian đến nơi</th>
-            <th>Còn</th>
+            <th>Số ghế đã đặt</th>
             <th>Giá vé</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-        <tr>
-            <td>07:00 15-8-2019</td>
-            <td>Hồ Chí Minh</td>
-            <td>07:00</td>
-            <td>34h</td>
-            <td>Hà Nội</td>
-            <td>17:00</td>
-            <td>100 vé</td>
-            <td>720.000 Đ</td>
-            <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-        </tr>
-    </tbody> 
+        @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
+        {
+            <tr>
+                <td>@ViewBag.result.Rows[i][0]</td>
+                <td>@ViewBag.result.Rows[i][1]</td>
+                <td>@ViewBag.result.Rows[i][2]</td>
+                <td>@ViewBag.result.Rows[i][3] giờ</td>
+                <td>@ViewBag.result.Rows[i][4]</td>
+                <td>@ViewBag.result.Rows[i][5]</td>
+                <td>@ViewBag.result.Rows[i][6]</td>
+                <td>@ViewBag.result.Rows[i][7]</td>
+                <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
+            </tr>
+        }
+
+
+    </tbody>
 </table>
+
 <script type="text/javascript">
-$(document).ready( function () {
-    $('#chuyenXe').DataTable();
-});
+    $(document).ready(function () {
+        $('#chuyenXe').DataTable();
+    });
 </script>

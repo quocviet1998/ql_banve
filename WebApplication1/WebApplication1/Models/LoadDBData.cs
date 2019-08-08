@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace WebApplication1.Models
 {
@@ -24,13 +20,25 @@ namespace WebApplication1.Models
             }
         }
 
-        public string login(object[] key)
+        public int login(object[] key)
         {
             if (isObjNull(key))
-                return null;
+                return -1;
             try
             {
-                return db.getDataSet("sp_login", key).Tables[0].Rows[0][0].ToString();
+                return (int)db.getDataSet("sp_login", key).Tables[0].Rows[0][0];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public string signin(object[] key)
+        {
+            try
+            {
+                return db.getDataSet("sp_signin", key).Tables[0].Rows[0][0].ToString();
             }
             catch (Exception e)
             {
