@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
             //    //ketqua += "<td><input type='button' value='Thêm' /><input type='button' value='Xóa' /><input type='button' value='Sửa' /></td>";
             //    ketqua += "</tr>";
             //}
-            ViewBag.View = load.loadTable("");
+            ViewBag.View = load.loadTable("TuyenXe");
             return View();
         }
 
@@ -75,48 +75,48 @@ namespace WebApplication1.Controllers
             //    ketqua += "<td>" + NhanVien[i].EMAIL + "</td>";
             //    ketqua += "</tr>";
             //}
-            ViewBag.View = load.loadTable("");
+            ViewBag.View = load.loadTable("NhanVien");
             return View();
         }
 
         public ActionResult KhachHang()
         {
-            var KhachHang = (from b in db.KHACHHANGs select b).ToList();
-            string ketqua = "";
-            for (int i = 0; i < KhachHang.Count; i++)
-            {
-                ketqua += "<tr>";
-                ketqua += "<td>" + KhachHang[i].MAKH + "</td>";
-                ketqua += "<td>" + KhachHang[i].TENKH + "</td>";
-                ketqua += "<td>" + KhachHang[i].NGAYSINH + "</td>";
-                ketqua += "<td>" + KhachHang[i].GIOITINH + "</td>";
-                ketqua += "<td>" + KhachHang[i].DIACHI + "</td>";
-                ketqua += "<td>" + KhachHang[i].CMND + "</td>";
-                ketqua += "<td>" + KhachHang[i].DIENTHOAI + "</td>";
-                ketqua += "<td>" + KhachHang[i].EMAIL + "</td>";
-                ketqua += "</tr>";
-            }
-            ViewBag.view = ketqua;
+            //var KhachHang = (from b in db.KHACHHANGs select b).ToList();
+            //string ketqua = "";
+            //for (int i = 0; i < KhachHang.Count; i++)
+            //{
+            //    ketqua += "<tr>";
+            //    ketqua += "<td>" + KhachHang[i].MAKH + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].TENKH + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].NGAYSINH + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].GIOITINH + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].DIACHI + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].CMND + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].DIENTHOAI + "</td>";
+            //    ketqua += "<td>" + KhachHang[i].EMAIL + "</td>";
+            //    ketqua += "</tr>";
+            //}
+            ViewBag.View = load.loadTable("KhachHang");
             return View();
         }
 
         public ActionResult ChuyenXe()
         {
-            var ChuyenXe = (from b in db.CHUYENXEs select b).ToList();
-            string ketqua = "";
-            for (int i = 0; i < ChuyenXe.Count; i++)
-            {
-                ketqua += "<tr>";
-                ketqua += "<td>" + ChuyenXe[i].MACHUYEN + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].TENCHUYEN + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].MATUYEN + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].GIODI + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].GIODEN + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].CHOTRONG + "</td>";
-                ketqua += "<td>" + ChuyenXe[i].MANV + "</td>";
-                ketqua += "</tr>";
-            }
-            ViewBag.view = ketqua;
+            //var ChuyenXe = (from b in db.CHUYENXEs select b).ToList();
+            //string ketqua = "";
+            //for (int i = 0; i < ChuyenXe.Count; i++)
+            //{
+            //    ketqua += "<tr>";
+            //    ketqua += "<td>" + ChuyenXe[i].MACHUYEN + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].TENCHUYEN + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].MATUYEN + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].GIODI + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].GIODEN + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].CHOTRONG + "</td>";
+            //    ketqua += "<td>" + ChuyenXe[i].MANV + "</td>";
+            //    ketqua += "</tr>";
+            //}
+            ViewBag.View = load.loadTable("ChuyenXe");
             return View();
         }
     }
