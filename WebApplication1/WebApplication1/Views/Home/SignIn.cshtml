@@ -5,7 +5,7 @@
 }
 
 <div class="login-box-body">
-    <h1>ĐĂNG KÝ</h1>
+    <h2 style="margin-top:0px; text-align:center;">ĐĂNG KÝ</h2>
     <p>
         Bạn Đã có tài khoản?
         <a href="~/Home/Login" class="text-blue" style="font-weight: 700">Đăng Nhập</a> ngay
@@ -19,10 +19,10 @@
             <label>Ngày sinh</label>
             <input type="text" id="ngaySinh" name="ngaySinh" value="" autofocus="">
         </div>
-        <div class="form-control">
-            <label>Giới tính</label>
-            <input type="radio" name="gender" value="Nam"> Nam<br>
-            <input type="radio" name="gender" value="Nữ"> Nữ<br>
+        <div>
+            <label>Giới tính</label><br />
+            <span><input type="radio" name="gender" value="Nam"> Nam</span>
+            <span><input type="radio" name="gender" value="Nữ"> Nữ<br></span>
         </div>
         <div class="form-control">
             <label>Địa chỉ</label>
@@ -61,3 +61,8 @@
     </div>
 
 </div>
+<style>
+    .form-control input{
+        height:25px;
+    }
+</style>
