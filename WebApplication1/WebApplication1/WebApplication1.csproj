@@ -208,49 +208,20 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chuyen.cs" />
-    <Compile Include="Models\CHUYENXE.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Driver.Context.cs" />
-    <Compile Include="Models\Driver.cs" />
-    <Compile Include="Models\Driver.Designer.cs" />
-    <Compile Include="Models\Driver1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Driver1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Driver.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\CHUYENXE.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\KHACHHANG.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\KHACHHANG.cs" />
     <Compile Include="Models\LoadDBData.cs" />
-    <Compile Include="Models\LOAIXE.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MALOAINV.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\LOAIXE.cs" />
+    <Compile Include="Models\MALOAINV.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\NHANVIEN.cs" />
     <Compile Include="Models\SearchModels.cs" />
     <Compile Include="Models\SigninModels.cs" />
     <Compile Include="Models\TuyenModels.cs" />
-    <Compile Include="Models\TUYENXE.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VEXE.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\XE.cs">
-      <DependentUpon>Driver.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\TUYENXE.cs" />
+    <Compile Include="Models\VEXE.cs" />
+    <Compile Include="Models\XE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -261,10 +232,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Driver.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Driver1.cs</LastGenOutput>
-    </Content>
     <Content Include="Public\polynesia-3021072_1280.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -273,11 +240,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Driver.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Driver1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Driver.edmx.diagram" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

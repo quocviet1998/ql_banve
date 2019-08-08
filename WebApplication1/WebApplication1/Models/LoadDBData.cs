@@ -61,5 +61,10 @@ namespace WebApplication1.Models
             return db.loadTable(tableName);
         }
 
+        public DataTable queryTable(string query)
+        {
+            return db.queryTable(query);
+        }
+
     }
 }
