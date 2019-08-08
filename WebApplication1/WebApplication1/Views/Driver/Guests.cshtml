@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Guests";
+    Layout = "~/Views/Shared/MasterDriver.cshtml";
+}
+<form action="~/Driver/Guests">
+<div style="text-align:center">
+@*@using (Html.BeginForm("Guests","Chuyen",FormMethod.Get))*@
+@Html.DropDownList("chuyenDi", (IEnumerable<SelectListItem>) ViewBag.select)
+<input type="submit" value="Xem" />
+</div>
+</form>
+<table style="width: 100%;border:1px solid black; text-align:center">
+    <tr>
+        <td>Mã vé</td>
+        <td>Họ tên</td>
+        <td>Số ghế</td>
+    </tr>
+    @foreach (var item in @ViewBag.ls) {
+    <tr>
+        <td>
+            @item.MAVE
+        </td>
+        <td>
+            @item.HOTEN
+        </td>
+        <td>
+            @item.SOGHE
+        </td>
+    </tr>
+}
+</table>
+<script type="text/javascript">
+    window.onload = function () {
+        $('#chuyenDi option').last().attr('selected', 'selected');
+    }
+</script>

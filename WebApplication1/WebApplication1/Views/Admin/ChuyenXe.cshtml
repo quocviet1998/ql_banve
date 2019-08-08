@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/MasterAdmin.cshtml";
+}
+<h2>Quản Lý Thông Tin Chuyến Xe</h2>
+<div>
+    <table id="table" style="width: 100%; border:1px; background-color:aliceblue">
+       <tr style="color: red">
+            <td><h4>Mã Chuyến Xe</h4></td>
+            <td><h4>Tên Chuyến Xe</h4></td>            
+            <td><h4>Mã Tuyến Xe</h4></td>
+            <td><h4>Giờ Đi</h4></td>
+            <td><h4>Giờ Đến</h4></td>
+            <td><h4>Chỗ Trống</h4></td>
+            <td><h4>Mã Nhân Viên<h4></td>
+            <td><h4>Hành động</h4></td>
+        </tr>
+
+        @Html.Raw(ViewBag.View)
+
+        <tr>       
+            <td>
+                <input id="txt_maCX" type="text" /></td> 
+            <td>
+                <input id="txt_tenCX" type="text" /></td>          
+            <td>
+                <input id="txt_maTuyenXe" type="text" /></td>
+            <td>
+                <input id="txt_giodi" type="txt_gioitinhKH" /></td>
+            <td>
+                <input id="txt_gioden" type="txt_diachiKH" /></td>
+            <td>
+                <input id="txt_chotrong" type="txt_CMND_KH" /></td>
+            <td>
+                <input id="txt_maNV_ChuyenXe" type="txt_dienthoaiKH" /></td>
+            <td>
+                <input id="Button1" type="button" value="Thêm" />
+                <input id="Button1" type="button" value="Xóa" />
+                <input id="Button1" type="button" value="Sửa" /></td>
+        </tr>
+        
+    </table>
+</div>

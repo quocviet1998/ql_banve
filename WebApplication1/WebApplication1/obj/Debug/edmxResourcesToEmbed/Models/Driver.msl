@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_BanVeXeModelStoreContainer" CdmEntityContainer="QL_BanVeXeEntities">
+    <EntitySetMapping Name="CHUYENXEs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.CHUYENXE">
+        <MappingFragment StoreEntitySet="CHUYENXE">
+          <ScalarProperty Name="MACHUYEN" ColumnName="MACHUYEN" />
+          <ScalarProperty Name="TENCHUYEN" ColumnName="TENCHUYEN" />
+          <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+          <ScalarProperty Name="GIODI" ColumnName="GIODI" />
+          <ScalarProperty Name="GIODEN" ColumnName="GIODEN" />
+          <ScalarProperty Name="CHOTRONG" ColumnName="CHOTRONG" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIXEs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.LOAIXE">
+        <MappingFragment StoreEntitySet="LOAIXE">
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MALOAINVs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.MALOAINV">
+        <MappingFragment StoreEntitySet="MALOAINV">
+          <ScalarProperty Name="MALOAINV1" ColumnName="MALOAINV" />
+          <ScalarProperty Name="TENLOAINV" ColumnName="TENLOAINV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="MALOAINV" ColumnName="MALOAINV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUYENXEs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.TUYENXE">
+        <MappingFragment StoreEntitySet="TUYENXE">
+          <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+          <ScalarProperty Name="TENTUYEN" ColumnName="TENTUYEN" />
+          <ScalarProperty Name="DIEMDI" ColumnName="DIEMDI" />
+          <ScalarProperty Name="DIEMDEN" ColumnName="DIEMDEN" />
+          <ScalarProperty Name="BANGGIA" ColumnName="BANGGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEXEs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.VEXE">
+        <MappingFragment StoreEntitySet="VEXE">
+          <ScalarProperty Name="MAVE" ColumnName="MAVE" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MACHUYENXE" ColumnName="MACHUYENXE" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="VITRIGHENGOI" ColumnName="VITRIGHENGOI" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEs">
+      <EntityTypeMapping TypeName="QL_BanVeXeModel.XE">
+        <MappingFragment StoreEntitySet="XE">
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="TENXE" ColumnName="TENXE" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

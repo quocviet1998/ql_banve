@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a774396c260543a8a468bb499f144ac0" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_BanVeXeModel.CHUYENXE" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.KHACHHANG" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.LOAIXE" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.MALOAINV" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.NHANVIEN" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.TUYENXE" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.VEXE" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_BanVeXeModel.XE" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_CHUYENXE_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_CHUYENXE_TUYENXE" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_VEXE_CHUYENXE" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_VEXE_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_XE_LOAIXE" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_NHANVIEN_MALOAINV" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_VEXE_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_BanVeXeModel.FK_VEXE_XE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

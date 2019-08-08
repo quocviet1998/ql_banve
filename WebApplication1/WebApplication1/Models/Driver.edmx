@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QL_BanVeXeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="QL_BanVeXeModelStoreContainer">
+          <EntitySet Name="CHUYENXE" EntityType="QL_BanVeXeModel.Store.CHUYENXE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KHACHHANG" EntityType="QL_BanVeXeModel.Store.KHACHHANG" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOAIXE" EntityType="QL_BanVeXeModel.Store.LOAIXE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MALOAINV" EntityType="QL_BanVeXeModel.Store.MALOAINV" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NHANVIEN" EntityType="QL_BanVeXeModel.Store.NHANVIEN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TUYENXE" EntityType="QL_BanVeXeModel.Store.TUYENXE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VEXE" EntityType="QL_BanVeXeModel.Store.VEXE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="XE" EntityType="QL_BanVeXeModel.Store.XE" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CHUYENXE_NHANVIEN" Association="QL_BanVeXeModel.Store.FK_CHUYENXE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHUYENXE_TUYENXE" Association="QL_BanVeXeModel.Store.FK_CHUYENXE_TUYENXE">
+            <End Role="TUYENXE" EntitySet="TUYENXE" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NHANVIEN_MALOAINV" Association="QL_BanVeXeModel.Store.FK_NHANVIEN_MALOAINV">
+            <End Role="MALOAINV" EntitySet="MALOAINV" />
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_CHUYENXE" Association="QL_BanVeXeModel.Store.FK_VEXE_CHUYENXE">
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+            <End Role="VEXE" EntitySet="VEXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_KHACHHANG" Association="QL_BanVeXeModel.Store.FK_VEXE_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="VEXE" EntitySet="VEXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_NHANVIEN" Association="QL_BanVeXeModel.Store.FK_VEXE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="VEXE" EntitySet="VEXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_XE" Association="QL_BanVeXeModel.Store.FK_VEXE_XE">
+            <End Role="XE" EntitySet="XE" />
+            <End Role="VEXE" EntitySet="VEXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_XE_LOAIXE" Association="QL_BanVeXeModel.Store.FK_XE_LOAIXE">
+            <End Role="LOAIXE" EntitySet="LOAIXE" />
+            <End Role="XE" EntitySet="XE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CHUYENXE">
+          <Key>
+            <PropertyRef Name="MACHUYEN" />
+          </Key>
+          <Property Name="MACHUYEN" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="TENCHUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATUYEN" Type="nchar" MaxLength="10" />
+          <Property Name="GIODI" Type="time" />
+          <Property Name="GIODEN" Type="time" />
+          <Property Name="CHOTRONG" Type="tinyint" />
+          <Property Name="MANV" Type="smallint" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKH" />
+          </Key>
+          <Property Name="MAKH" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENDN" Type="nchar" MaxLength="10" />
+          <Property Name="MATKHAU" Type="nchar" MaxLength="10" />
+          <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
+          <Property Name="NGAYSINH" Type="date" />
+          <Property Name="GIOITINH" Type="bit" />
+          <Property Name="DIACHI" Type="nvarchar(max)" />
+          <Property Name="CMND" Type="numeric" Precision="10" />
+          <Property Name="DIENTHOAI" Type="numeric" />
+          <Property Name="EMAIL" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOAIXE">
+          <Key>
+            <PropertyRef Name="MALOAIXE" />
+          </Key>
+          <Property Name="MALOAIXE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MALOAINV">
+          <Key>
+            <PropertyRef Name="MALOAINV" />
+          </Key>
+          <Property Name="MALOAINV" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAINV" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANV" />
+          </Key>
+          <Property Name="MANV" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENDN" Type="nchar" MaxLength="10" />
+          <Property Name="MATKHAU" Type="nchar" MaxLength="10" />
+          <Property Name="TENNV" Type="nvarchar(max)" />
+          <Property Name="NGAYSINH" Type="date" />
+          <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
+          <Property Name="DIACHI" Type="nvarchar(max)" />
+          <Property Name="CMND" Type="numeric" Precision="10" />
+          <Property Name="DIENTHOAI" Type="numeric" />
+          <Property Name="EMAIL" Type="nchar" MaxLength="50" />
+          <Property Name="MALOAINV" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TUYENXE">
+          <Key>
+            <PropertyRef Name="MATUYEN" />
+          </Key>
+          <Property Name="MATUYEN" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="TENTUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIEMDI" Type="nvarchar" MaxLength="30" />
+          <Property Name="DIEMDEN" Type="nvarchar" MaxLength="30" />
+          <Property Name="BANGGIA" Type="money" />
+        </EntityType>
+        <EntityType Name="VEXE">
+          <Key>
+            <PropertyRef Name="MAVE" />
+            <PropertyRef Name="MAKH" />
+          </Key>
+          <Property Name="MAVE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAKH" Type="smallint" Nullable="false" />
+          <Property Name="MANV" Type="smallint" />
+          <Property Name="MACHUYENXE" Type="nchar" MaxLength="10" />
+          <Property Name="MAXE" Type="smallint" />
+          <Property Name="VITRIGHENGOI" Type="tinyint" />
+          <Property Name="GHICHU" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="XE">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="MAXE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="BIENSO" Type="ntext" />
+          <Property Name="SOGHE" Type="tinyint" />
+          <Property Name="MALOAIXE" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CHUYENXE_NHANVIEN">
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.Store.NHANVIEN" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.Store.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHUYENXE_TUYENXE">
+          <End Role="TUYENXE" Type="QL_BanVeXeModel.Store.TUYENXE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.Store.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUYENXE">
+              <PropertyRef Name="MATUYEN" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MATUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NHANVIEN_MALOAINV">
+          <End Role="MALOAINV" Type="QL_BanVeXeModel.Store.MALOAINV" Multiplicity="0..1" />
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.Store.NHANVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MALOAINV">
+              <PropertyRef Name="MALOAINV" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="MALOAINV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_CHUYENXE">
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.Store.CHUYENXE" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.Store.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MACHUYEN" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MACHUYENXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_KHACHHANG">
+          <End Role="KHACHHANG" Type="QL_BanVeXeModel.Store.KHACHHANG" Multiplicity="1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.Store.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKH" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MAKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_NHANVIEN">
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.Store.NHANVIEN" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.Store.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_XE">
+          <End Role="XE" Type="QL_BanVeXeModel.Store.XE" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.Store.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XE">
+              <PropertyRef Name="MAXE" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MAXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_XE_LOAIXE">
+          <End Role="LOAIXE" Type="QL_BanVeXeModel.Store.LOAIXE" Multiplicity="1" />
+          <End Role="XE" Type="QL_BanVeXeModel.Store.XE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MALOAIXE" />
+            </Principal>
+            <Dependent Role="XE">
+              <PropertyRef Name="MALOAIXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_BanVeXeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QL_BanVeXeEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CHUYENXEs" EntityType="QL_BanVeXeModel.CHUYENXE" />
+          <EntitySet Name="KHACHHANGs" EntityType="QL_BanVeXeModel.KHACHHANG" />
+          <EntitySet Name="LOAIXEs" EntityType="QL_BanVeXeModel.LOAIXE" />
+          <EntitySet Name="MALOAINVs" EntityType="QL_BanVeXeModel.MALOAINV" />
+          <EntitySet Name="NHANVIENs" EntityType="QL_BanVeXeModel.NHANVIEN" />
+          <EntitySet Name="TUYENXEs" EntityType="QL_BanVeXeModel.TUYENXE" />
+          <EntitySet Name="VEXEs" EntityType="QL_BanVeXeModel.VEXE" />
+          <EntitySet Name="XEs" EntityType="QL_BanVeXeModel.XE" />
+          <AssociationSet Name="FK_CHUYENXE_NHANVIEN" Association="QL_BanVeXeModel.FK_CHUYENXE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHUYENXE_TUYENXE" Association="QL_BanVeXeModel.FK_CHUYENXE_TUYENXE">
+            <End Role="TUYENXE" EntitySet="TUYENXEs" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_CHUYENXE" Association="QL_BanVeXeModel.FK_VEXE_CHUYENXE">
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+            <End Role="VEXE" EntitySet="VEXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_KHACHHANG" Association="QL_BanVeXeModel.FK_VEXE_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="VEXE" EntitySet="VEXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_XE_LOAIXE" Association="QL_BanVeXeModel.FK_XE_LOAIXE">
+            <End Role="LOAIXE" EntitySet="LOAIXEs" />
+            <End Role="XE" EntitySet="XEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NHANVIEN_MALOAINV" Association="QL_BanVeXeModel.FK_NHANVIEN_MALOAINV">
+            <End Role="MALOAINV" EntitySet="MALOAINVs" />
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_NHANVIEN" Association="QL_BanVeXeModel.FK_VEXE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="VEXE" EntitySet="VEXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEXE_XE" Association="QL_BanVeXeModel.FK_VEXE_XE">
+            <End Role="XE" EntitySet="XEs" />
+            <End Role="VEXE" EntitySet="VEXEs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CHUYENXE">
+          <Key>
+            <PropertyRef Name="MACHUYEN" />
+          </Key>
+          <Property Name="MACHUYEN" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="TENCHUYEN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MATUYEN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="GIODI" Type="Time" Precision="7" />
+          <Property Name="GIODEN" Type="Time" Precision="7" />
+          <Property Name="CHOTRONG" Type="Byte" />
+          <Property Name="MANV" Type="Int16" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QL_BanVeXeModel.FK_CHUYENXE_NHANVIEN" FromRole="CHUYENXE" ToRole="NHANVIEN" />
+          <NavigationProperty Name="TUYENXE" Relationship="QL_BanVeXeModel.FK_CHUYENXE_TUYENXE" FromRole="CHUYENXE" ToRole="TUYENXE" />
+          <NavigationProperty Name="VEXEs" Relationship="QL_BanVeXeModel.FK_VEXE_CHUYENXE" FromRole="CHUYENXE" ToRole="VEXE" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKH" />
+          </Key>
+          <Property Name="MAKH" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENDN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="MATKHAU" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="TENKH" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="GIOITINH" Type="Boolean" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CMND" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="DIENTHOAI" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="VEXEs" Relationship="QL_BanVeXeModel.FK_VEXE_KHACHHANG" FromRole="KHACHHANG" ToRole="VEXE" />
+        </EntityType>
+        <EntityType Name="LOAIXE">
+          <Key>
+            <PropertyRef Name="MALOAIXE" />
+          </Key>
+          <Property Name="MALOAIXE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAIXE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="XEs" Relationship="QL_BanVeXeModel.FK_XE_LOAIXE" FromRole="LOAIXE" ToRole="XE" />
+        </EntityType>
+        <EntityType Name="MALOAINV">
+          <Key>
+            <PropertyRef Name="MALOAINV1" />
+          </Key>
+          <Property Name="MALOAINV1" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAINV" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="NHANVIENs" Relationship="QL_BanVeXeModel.FK_NHANVIEN_MALOAINV" FromRole="MALOAINV" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANV" />
+          </Key>
+          <Property Name="MANV" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENDN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="MATKHAU" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="TENNV" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="GIOITINH" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CMND" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="DIENTHOAI" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="MALOAINV" Type="Int16" />
+          <NavigationProperty Name="CHUYENXEs" Relationship="QL_BanVeXeModel.FK_CHUYENXE_NHANVIEN" FromRole="NHANVIEN" ToRole="CHUYENXE" />
+          <NavigationProperty Name="MALOAINV1" Relationship="QL_BanVeXeModel.FK_NHANVIEN_MALOAINV" FromRole="NHANVIEN" ToRole="MALOAINV" />
+          <NavigationProperty Name="VEXEs" Relationship="QL_BanVeXeModel.FK_VEXE_NHANVIEN" FromRole="NHANVIEN" ToRole="VEXE" />
+        </EntityType>
+        <EntityType Name="TUYENXE">
+          <Key>
+            <PropertyRef Name="MATUYEN" />
+          </Key>
+          <Property Name="MATUYEN" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="TENTUYEN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DIEMDI" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DIEMDEN" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="BANGGIA" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CHUYENXEs" Relationship="QL_BanVeXeModel.FK_CHUYENXE_TUYENXE" FromRole="TUYENXE" ToRole="CHUYENXE" />
+        </EntityType>
+        <EntityType Name="VEXE">
+          <Key>
+            <PropertyRef Name="MAVE" />
+            <PropertyRef Name="MAKH" />
+          </Key>
+          <Property Name="MAVE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MAKH" Type="Int16" Nullable="false" />
+          <Property Name="MANV" Type="Int16" />
+          <Property Name="MACHUYENXE" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="MAXE" Type="Int16" />
+          <Property Name="VITRIGHENGOI" Type="Byte" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CHUYENXE" Relationship="QL_BanVeXeModel.FK_VEXE_CHUYENXE" FromRole="VEXE" ToRole="CHUYENXE" />
+          <NavigationProperty Name="KHACHHANG" Relationship="QL_BanVeXeModel.FK_VEXE_KHACHHANG" FromRole="VEXE" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QL_BanVeXeModel.FK_VEXE_NHANVIEN" FromRole="VEXE" ToRole="NHANVIEN" />
+          <NavigationProperty Name="XE" Relationship="QL_BanVeXeModel.FK_VEXE_XE" FromRole="VEXE" ToRole="XE" />
+        </EntityType>
+        <EntityType Name="XE">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="MAXE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENXE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BIENSO" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SOGHE" Type="Byte" />
+          <Property Name="MALOAIXE" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="LOAIXE" Relationship="QL_BanVeXeModel.FK_XE_LOAIXE" FromRole="XE" ToRole="LOAIXE" />
+          <NavigationProperty Name="VEXEs" Relationship="QL_BanVeXeModel.FK_VEXE_XE" FromRole="XE" ToRole="VEXE" />
+        </EntityType>
+        <Association Name="FK_CHUYENXE_NHANVIEN">
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.NHANVIEN" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHUYENXE_TUYENXE">
+          <End Role="TUYENXE" Type="QL_BanVeXeModel.TUYENXE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUYENXE">
+              <PropertyRef Name="MATUYEN" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MATUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_CHUYENXE">
+          <End Role="CHUYENXE" Type="QL_BanVeXeModel.CHUYENXE" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MACHUYEN" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MACHUYENXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_KHACHHANG">
+          <End Role="KHACHHANG" Type="QL_BanVeXeModel.KHACHHANG" Multiplicity="1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKH" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MAKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_XE_LOAIXE">
+          <End Role="LOAIXE" Type="QL_BanVeXeModel.LOAIXE" Multiplicity="1" />
+          <End Role="XE" Type="QL_BanVeXeModel.XE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MALOAIXE" />
+            </Principal>
+            <Dependent Role="XE">
+              <PropertyRef Name="MALOAIXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NHANVIEN_MALOAINV">
+          <End Role="MALOAINV" Type="QL_BanVeXeModel.MALOAINV" Multiplicity="0..1" />
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.NHANVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MALOAINV">
+              <PropertyRef Name="MALOAINV1" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="MALOAINV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_NHANVIEN">
+          <End Role="NHANVIEN" Type="QL_BanVeXeModel.NHANVIEN" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEXE_XE">
+          <End Role="XE" Type="QL_BanVeXeModel.XE" Multiplicity="0..1" />
+          <End Role="VEXE" Type="QL_BanVeXeModel.VEXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XE">
+              <PropertyRef Name="MAXE" />
+            </Principal>
+            <Dependent Role="VEXE">
+              <PropertyRef Name="MAXE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_BanVeXeModelStoreContainer" CdmEntityContainer="QL_BanVeXeEntities">
+          <EntitySetMapping Name="CHUYENXEs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.CHUYENXE">
+              <MappingFragment StoreEntitySet="CHUYENXE">
+                <ScalarProperty Name="MACHUYEN" ColumnName="MACHUYEN" />
+                <ScalarProperty Name="TENCHUYEN" ColumnName="TENCHUYEN" />
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="GIODI" ColumnName="GIODI" />
+                <ScalarProperty Name="GIODEN" ColumnName="GIODEN" />
+                <ScalarProperty Name="CHOTRONG" ColumnName="CHOTRONG" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIXEs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.LOAIXE">
+              <MappingFragment StoreEntitySet="LOAIXE">
+                <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+                <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MALOAINVs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.MALOAINV">
+              <MappingFragment StoreEntitySet="MALOAINV">
+                <ScalarProperty Name="MALOAINV1" ColumnName="MALOAINV" />
+                <ScalarProperty Name="TENLOAINV" ColumnName="TENLOAINV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MALOAINV" ColumnName="MALOAINV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TUYENXEs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.TUYENXE">
+              <MappingFragment StoreEntitySet="TUYENXE">
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="TENTUYEN" ColumnName="TENTUYEN" />
+                <ScalarProperty Name="DIEMDI" ColumnName="DIEMDI" />
+                <ScalarProperty Name="DIEMDEN" ColumnName="DIEMDEN" />
+                <ScalarProperty Name="BANGGIA" ColumnName="BANGGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEXEs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.VEXE">
+              <MappingFragment StoreEntitySet="VEXE">
+                <ScalarProperty Name="MAVE" ColumnName="MAVE" />
+                <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="MACHUYENXE" ColumnName="MACHUYENXE" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="VITRIGHENGOI" ColumnName="VITRIGHENGOI" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XEs">
+            <EntityTypeMapping TypeName="QL_BanVeXeModel.XE">
+              <MappingFragment StoreEntitySet="XE">
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="TENXE" ColumnName="TENXE" />
+                <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+                <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
+                <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/MasterAdmin.cshtml";
+}
+<h2>Quản Lý Xe</h2>
+<div>
+    <table id="table" style="width: 100%; border:1px; background-color:aliceblue">
+       
+            <tr style="color: red">
+                <td><h4>Mã Xe</h4></td>
+                <td><h4>Tên Xe</h4></td>
+                <td><h4>Biển Số</h4></td>
+                <td><h4>Số Ghế</h4></td>
+                <td><h4>Mã Loại Xe</h4></td>
+                <td><h4>Hành động</h4></td>
+            </tr>
+
+            @Html.Raw(ViewBag.View)
+            <tr>
+                <td>
+                    <input id="txt_matuyen" type="text" />
+                </td>
+                <td
+                <input id="txt_tentuyen" type="text" /></td>
+                <td>
+                    <input id="txt_diemdi" type="text" />
+                </td>
+                <td>
+                    <input id="txt_diemden" type="text" />
+                </td>
+                <td>
+                    <input id="txt_banggia" type="text" />
+                </td>
+                <td>
+                    <input id="Button1" type="button" value="Thêm" />
+                    <input id="Button1" type="button" value="Xóa" />
+                    <input id="Button1" type="button" value="Sửa" />
+                </td>
+            </tr>
+      
+    </table>
+</div>
+
+@*<script type="text/javascript">
+                        $(document).ready( function () {
+                            $('#table').DataTable();
+                        });
+</script>*@   

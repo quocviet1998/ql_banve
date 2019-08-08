@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="banvexeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="banvexeModelStoreContainer">
+    <EntitySet Name="LOAIXE" EntityType="banvexeModel.Store.LOAIXE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MALOAINV" EntityType="banvexeModel.Store.MALOAINV" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NHANVIEN" EntityType="banvexeModel.Store.NHANVIEN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TUYENXE" EntityType="banvexeModel.Store.TUYENXE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VEXE" EntityType="banvexeModel.Store.VEXE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="XE" EntityType="banvexeModel.Store.XE" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_NHANVIEN_MALOAINV" Association="banvexeModel.Store.FK_NHANVIEN_MALOAINV">
+      <End Role="MALOAINV" EntitySet="MALOAINV" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEXE_NHANVIEN" Association="banvexeModel.Store.FK_VEXE_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="VEXE" EntitySet="VEXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEXE_XE" Association="banvexeModel.Store.FK_VEXE_XE">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="VEXE" EntitySet="VEXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XE_LOAIXE" Association="banvexeModel.Store.FK_XE_LOAIXE">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="MALOAIXE" />
+    </Key>
+    <Property Name="MALOAIXE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MALOAINV">
+    <Key>
+      <PropertyRef Name="MALOAINV" />
+    </Key>
+    <Property Name="MALOAINV" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAINV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TENDN" Type="nchar" MaxLength="10" />
+    <Property Name="MATKHAU" Type="nchar" MaxLength="10" />
+    <Property Name="TENNV" Type="nvarchar(max)" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
+    <Property Name="DIACHI" Type="nvarchar(max)" />
+    <Property Name="CMND" Type="numeric" Precision="10" />
+    <Property Name="DIENTHOAI" Type="numeric" />
+    <Property Name="EMAIL" Type="nchar" MaxLength="50" />
+    <Property Name="MALOAINV" Type="smallint" />
+  </EntityType>
+  <EntityType Name="TUYENXE">
+    <Key>
+      <PropertyRef Name="MATUYEN" />
+    </Key>
+    <Property Name="MATUYEN" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="TENTUYEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIEMDI" Type="nvarchar" MaxLength="30" />
+    <Property Name="DIEMDEN" Type="nvarchar" MaxLength="30" />
+    <Property Name="BANGGIA" Type="money" />
+  </EntityType>
+  <EntityType Name="VEXE">
+    <Key>
+      <PropertyRef Name="MAVE" />
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAVE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="smallint" Nullable="false" />
+    <Property Name="MANV" Type="smallint" />
+    <Property Name="MACHUYENXE" Type="nchar" MaxLength="10" />
+    <Property Name="MAXE" Type="smallint" />
+    <Property Name="VITRIGHENGOI" Type="tinyint" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TENXE" Type="nvarchar" MaxLength="50" />
+    <Property Name="BIENSO" Type="ntext" />
+    <Property Name="SOGHE" Type="tinyint" />
+    <Property Name="MALOAIXE" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_NHANVIEN_MALOAINV">
+    <End Role="MALOAINV" Type="banvexeModel.Store.MALOAINV" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="banvexeModel.Store.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MALOAINV">
+        <PropertyRef Name="MALOAINV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MALOAINV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEXE_NHANVIEN">
+    <End Role="NHANVIEN" Type="banvexeModel.Store.NHANVIEN" Multiplicity="0..1" />
+    <End Role="VEXE" Type="banvexeModel.Store.VEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="VEXE">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEXE_XE">
+    <End Role="XE" Type="banvexeModel.Store.XE" Multiplicity="0..1" />
+    <End Role="VEXE" Type="banvexeModel.Store.VEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="VEXE">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XE_LOAIXE">
+    <End Role="LOAIXE" Type="banvexeModel.Store.LOAIXE" Multiplicity="1" />
+    <End Role="XE" Type="banvexeModel.Store.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MALOAIXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="login-box-body">
+    <h1>ĐĂNG NHẬP</h1>
+    <p>
+        Chưa có tài khoản?
+        <a href="~/Home/SignIn" class="text-blue" style="font-weight: 700">Đăng ký</a> ngay
+    </p>
+    <form method="POST" action="~/Home/Login">
+        <div class="form-control">
+            <label>TÀI KHOẢN</label>
+            <input type="text" name="use_login" value="" autofocus="">
+        </div>
+        <div class="form-control">
+            <label>MẬT KHẨU</label>
+            <input type="password" name="password">
+        </div>
+        <div class="form-button">
+            <div>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">ĐĂNG NHẬP</button>
+            </div>
+        </div>
+    </form>
+</div>
+

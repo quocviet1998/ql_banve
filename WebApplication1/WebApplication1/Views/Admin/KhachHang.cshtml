@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/MasterAdmin.cshtml";
+}
+<h2>Quản Lý Thông Tin Khách Hàng</h2>
+<div>
+    <table id="table" style="width: 100%; border:1px; background-color:aliceblue">
+       <tr style="color: red">
+            <td><h4>Mã Khách Hàng</h4></td>
+            <td><h4>Tên Khách Hàng</h4></td>            
+            <td><h4>Ngày Sinh</h4></td>
+            <td><h4>Gioi Tính</h4></td>
+            <td><h4>Địa Chỉ</h4></td>
+            <td><h4>CMND</h4></td>
+            <td><h4>Điện Thoại</h4></td>
+            <td><h4>Email</h4></td>
+            <td><h4>Hành động</h4></td>
+        </tr>
+
+        @Html.Raw(ViewBag.View)
+
+        <tr>       
+            <td>
+                <input id="txt_maKH" type="text" /></td> 
+            <td>
+                <input id="txt_tenKH" type="text" /></td>          
+            <td>
+                <input id="txt_ngaysinhKH" type="text" /></td>
+            <td>
+                <input id="Text1" type="txt_gioitinhKH" /></td>
+            <td>
+                <input id="Text1" type="txt_diachiKH" /></td>
+            <td>
+                <input id="Text1" type="txt_CMND_KH" /></td>
+            <td>
+                <input id="Text1" type="txt_dienthoaiKH" /></td>
+            <td>
+                <input id="Text1" type="txt_EMAIL_KH" /></td>
+            <td>
+                <input id="Button1" type="button" value="Thêm" />
+                <input id="Button1" type="button" value="Xóa" />
+                <input id="Button1" type="button" value="Sửa" /></td>
+        </tr>
+        
+    </table>
+</div>

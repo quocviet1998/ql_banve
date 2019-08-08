@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="banvexeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="banvexeEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="LOAIXEs" EntityType="banvexeModel.LOAIXE" />
+    <EntitySet Name="MALOAINVs" EntityType="banvexeModel.MALOAINV" />
+    <EntitySet Name="NHANVIENs" EntityType="banvexeModel.NHANVIEN" />
+    <EntitySet Name="TUYENXEs" EntityType="banvexeModel.TUYENXE" />
+    <EntitySet Name="VEXEs" EntityType="banvexeModel.VEXE" />
+    <EntitySet Name="XEs" EntityType="banvexeModel.XE" />
+    <AssociationSet Name="FK_XE_LOAIXE" Association="banvexeModel.FK_XE_LOAIXE">
+      <End Role="LOAIXE" EntitySet="LOAIXEs" />
+      <End Role="XE" EntitySet="XEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_MALOAINV" Association="banvexeModel.FK_NHANVIEN_MALOAINV">
+      <End Role="MALOAINV" EntitySet="MALOAINVs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEXE_NHANVIEN" Association="banvexeModel.FK_VEXE_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="VEXE" EntitySet="VEXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEXE_XE" Association="banvexeModel.FK_VEXE_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="VEXE" EntitySet="VEXEs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="MALOAIXE" />
+    </Key>
+    <Property Name="MALOAIXE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAIXE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="XEs" Relationship="banvexeModel.FK_XE_LOAIXE" FromRole="LOAIXE" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="MALOAINV">
+    <Key>
+      <PropertyRef Name="MALOAINV1" />
+    </Key>
+    <Property Name="MALOAINV1" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAINV" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NHANVIENs" Relationship="banvexeModel.FK_NHANVIEN_MALOAINV" FromRole="MALOAINV" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TENDN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="MATKHAU" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="TENNV" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="DIACHI" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CMND" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="DIENTHOAI" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="MALOAINV" Type="Int16" />
+    <NavigationProperty Name="MALOAINV1" Relationship="banvexeModel.FK_NHANVIEN_MALOAINV" FromRole="NHANVIEN" ToRole="MALOAINV" />
+    <NavigationProperty Name="VEXEs" Relationship="banvexeModel.FK_VEXE_NHANVIEN" FromRole="NHANVIEN" ToRole="VEXE" />
+  </EntityType>
+  <EntityType Name="TUYENXE">
+    <Key>
+      <PropertyRef Name="MATUYEN" />
+    </Key>
+    <Property Name="MATUYEN" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="TENTUYEN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DIEMDI" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="DIEMDEN" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="BANGGIA" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="VEXE">
+    <Key>
+      <PropertyRef Name="MAVE" />
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAVE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="Int16" Nullable="false" />
+    <Property Name="MANV" Type="Int16" />
+    <Property Name="MACHUYENXE" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="MAXE" Type="Int16" />
+    <Property Name="VITRIGHENGOI" Type="Byte" />
+    <Property Name="GHICHU" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="banvexeModel.FK_VEXE_NHANVIEN" FromRole="VEXE" ToRole="NHANVIEN" />
+    <NavigationProperty Name="XE" Relationship="banvexeModel.FK_VEXE_XE" FromRole="VEXE" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TENXE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BIENSO" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SOGHE" Type="Byte" />
+    <Property Name="MALOAIXE" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="LOAIXE" Relationship="banvexeModel.FK_XE_LOAIXE" FromRole="XE" ToRole="LOAIXE" />
+    <NavigationProperty Name="VEXEs" Relationship="banvexeModel.FK_VEXE_XE" FromRole="XE" ToRole="VEXE" />
+  </EntityType>
+  <Association Name="FK_XE_LOAIXE">
+    <End Role="LOAIXE" Type="banvexeModel.LOAIXE" Multiplicity="1" />
+    <End Role="XE" Type="banvexeModel.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MALOAIXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_MALOAINV">
+    <End Role="MALOAINV" Type="banvexeModel.MALOAINV" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="banvexeModel.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MALOAINV">
+        <PropertyRef Name="MALOAINV1" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MALOAINV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEXE_NHANVIEN">
+    <End Role="NHANVIEN" Type="banvexeModel.NHANVIEN" Multiplicity="0..1" />
+    <End Role="VEXE" Type="banvexeModel.VEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="VEXE">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEXE_XE">
+    <End Role="XE" Type="banvexeModel.XE" Multiplicity="0..1" />
+    <End Role="VEXE" Type="banvexeModel.VEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="VEXE">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
