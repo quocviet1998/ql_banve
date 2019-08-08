@@ -86,5 +86,34 @@ namespace WebApplication1
                 close();
             }
         }
+
+        public DataTable loadTable(string tableName)
+        {
+            open();
+            DataTable dt = new DataTable();
+            try
+            {
+                string strCmd = "select* from " + tableName;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = strCmd;
+                SqlDataAdapter da = new SqlDataAdapter(strCmd, conn);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    return dt;
+                else return null;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                close();
+            }
+            return null;
+        }
     }
 }

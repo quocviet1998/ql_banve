@@ -46,5 +46,12 @@ namespace WebApplication1.Models
                     return false;
             return true;
         }
+
+
+        public DataTable loadTable(string tableName)
+        {
+            return db.loadTable(tableName);
+        }
+
     }
 }

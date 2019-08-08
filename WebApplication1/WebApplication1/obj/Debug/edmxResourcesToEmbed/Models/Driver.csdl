@@ -112,7 +112,7 @@
     <Key>
       <PropertyRef Name="MATUYEN" />
     </Key>
-    <Property Name="MATUYEN" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="MATUYEN" Type="Int16" Nullable="false" />
     <Property Name="TENTUYEN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="DIEMDI" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
     <Property Name="DIEMDEN" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
