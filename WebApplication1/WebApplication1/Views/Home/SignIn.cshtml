@@ -5,23 +5,42 @@
 }
 
 <div class="login-box-body">
-    <h1>ĐĂNG KÝ</h1>
+    <h2 style="margin-top:0px; text-align:center;">ĐĂNG KÝ</h2>
     <p>
         Bạn Đã có tài khoản?
         <a href="~/Home/Login" class="text-blue" style="font-weight: 700">Đăng Nhập</a> ngay
     </p>
-    <form id="signIn" method="POST" action="~/Home/SignInCustomer" novalidate>
+    <form id="signIn" method="POST" action="~/Home/SignInCustomer">
         <div class="form-control">
             <label>Tên Khách Hàng</label>
             <input type="text" id="desName" name="desName" value="" autofocus="">
+            <label>Tên</label>
+            <input type="text" id="name" name="name" value="" autofocus="">
+        </div>
+        <div class="form-control">
+            <label>Ngày sinh</label>
+            <input type="text" id="ngaySinh" name="ngaySinh" value="" autofocus="">
+        </div>
+        <div>
+            <label>Giới tính</label><br />
+            <span><input type="radio" name="gender" value="Nam"> Nam</span>
+            <span><input type="radio" name="gender" value="Nữ"> Nữ<br></span>
+        </div>
+        <div class="form-control">
+            <label>Địa chỉ</label>
+            <input type="text" id="diaChi" name="diaChi" value="" autofocus="">
+        </div>
+        <div class="form-control">
+            <label>Số CMND</label>
+            <input type="text" id="CMND" name="CMND" value="" autofocus="">
+        </div>
+        <div class="form-control">
+            <label>Số điện thoại</label>
+            <input type="text" id="SDT" name="SDT" value="" autofocus="">
         </div>
         <div class="form-control">
             <label>Email</label>
             <input type="email" id="email" name="email" value="" autofocus="">
-        </div>
-        <div class="form-control">
-            <label>Số Điện Thoại</label>
-            <input type="tel" id="phone" name="phone" value="" autofocus="">
         </div>
         <div class="form-control">
             <label>Tên Đăng Nhập</label>
@@ -44,3 +63,8 @@
     </div>
 
 </div>
+<style>
+    .form-control input{
+        height:25px;
+    }
+</style>

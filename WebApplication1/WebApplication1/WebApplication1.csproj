@@ -208,20 +208,12 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chuyen.cs" />
-    <Compile Include="Models\CHUYENXE.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\KHACHHANG.cs" />
     <Compile Include="Models\LoadDBData.cs" />
-    <Compile Include="Models\LOAIXE.cs" />
-    <Compile Include="Models\MALOAINV.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NHANVIEN.cs" />
     <Compile Include="Models\SearchModels.cs" />
     <Compile Include="Models\SigninModels.cs" />
     <Compile Include="Models\TuyenModels.cs" />
-    <Compile Include="Models\TUYENXE.cs" />
-    <Compile Include="Models\VEXE.cs" />
-    <Compile Include="Models\XE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
