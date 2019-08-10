@@ -14,8 +14,10 @@ namespace WebApplication1.Controllers
         // GET: Driver
         public ActionResult Index()
         {
-            Session["driver"] = "1";
-            short manv = short.Parse(Session["driver"].ToString());
+            //Session["driver"] = null;
+            if (Session["driver"] == null)
+                return RedirectToAction("Login", "Driver");
+            string manv = Session["driver"].ToString();
             string query = "select * from nhanvien where manv = " + manv;
             //var thongtincanhan = "";// (from NHANVIEN in db.NHANVIENs where NHANVIEN.MANV == manv select NHANVIEN).ToList();
             //SelectList select = new SelectList(thongtincanhan);
@@ -25,7 +27,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult Guests(string chuyenDi)
         {
-            Session["driver"] = "1";
+            //Session["driver"] = "1";
             // //Lấy mã nv từ session
             short manv = short.Parse(Session["driver"].ToString());
             // //Lấy danh sách các chuyến xe của tài xế đó
@@ -63,6 +65,30 @@ namespace WebApplication1.Controllers
             }
             ViewBag.ls = listLinks;
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult checkAccount(string user_login, string password)
+        {
+            string str = "";
+            var res = load.login(new string[] { user_login, password });
+            if (res == 0)
+            {
+                str = "Đăng nhập thất bại! Tên đăng nhập hoặc mật khẩu không chính xác";
+                TempData["temp"] = str;
+            }
+            else if (res == 1)
+            {
+                //string[] KH = load.getInfoKH(new string[] { user_login });
+                string query = "select manv from nhanvien where tendn = '" + user_login + "' and matkhau = '" + password + "'";
+                Session["driver"] = load.queryTable(query).Rows[0][0].ToString();
+                return RedirectToAction("Index", "Driver");
+            }
+            return RedirectToAction("Login", "Driver");
         }
     }
 }

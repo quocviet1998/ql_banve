@@ -18,28 +18,59 @@ namespace WebApplication1.Controllers
 
         private SelectList EmptySeat(string maChuyen)
         {
+            
+
             DataTable tableEmptySeat = db.EmptySeat(maChuyen);
+            //DataColumn[] keyColumns = new DataColumn[1];
+            //keyColumns[0] = tableEmptySeat.Columns[0];
+            //tableEmptySeat.PrimaryKey = keyColumns;
+
             int soGhe = db.SoGhe(maChuyen);
             List<int> listEmptySeat = new List<int>();
-            for (int i = 0; i < soGhe; i++)
+            for (int i = 1; i <= soGhe; i++)
             {
-                if (tableEmptySeat.Rows.Contains(i))
-                    break;
+                if (booked(tableEmptySeat, i))
+                    continue;
                 else
-                   listEmptySeat.Add(i+1);
+                   listEmptySeat.Add(i);
             }
             SelectList select = new SelectList(listEmptySeat);
             return select;
         }
 
+        private bool booked(DataTable tableEmptySeat, int x)
+        {
+            for (int i = 0; i < tableEmptySeat.Rows.Count; i++)
+                if (tableEmptySeat.Rows[i][0].ToString() == x.ToString())
+                    return true;
+            return false;
+        }
+
+
+        public string BookVe(string GHE, string MACHUYEN)
+        {
+            if (Session["KH"] == null)
+            {
+                return "fail";
+            }
+            string[] arrStr = Session["KH"] as string[];
+            string query = "insert into VEXE VALUES(" + arrStr[0] + ", " + MACHUYEN + ", " + GHE + ")";
+            DbConnectHelpers db = new DbConnectHelpers();
+            db.executeNonQuery(query);
+            return "success";
+        }
+
+
         public ActionResult Search(SearchModels key)
         {
 
             DataTable rs = db.search(new string[] { key.startPoint == "" ? "Hồ Chí Minh" : key.startPoint, key.endPoint, key.startDate });
+            List<SelectList> list = new List<SelectList>();
             for (int i = 0; i < rs.Rows.Count; i++)
             {
-                rs.Rows[i][8] = EmptySeat(rs.Rows[i][8].ToString());
+                list.Add(EmptySeat(rs.Rows[i][8].ToString()));
             }
+            ViewBag.list = list;
             ViewBag.result = rs;
             return View();
         }

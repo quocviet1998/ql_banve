@@ -405,6 +405,6 @@ C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\bin\Microsoft.Owin.Secu
 C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
 C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
 C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\xampp\htdocs\ql_banve\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

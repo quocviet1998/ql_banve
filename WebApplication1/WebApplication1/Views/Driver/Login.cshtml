@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<div class="login-box-body">
+    <h1>ĐĂNG NHẬP</h1>
+    <form method="POST" action="~/Driver/checkAccount">
+        <div class="form-control">
+            <label>TÀI KHOẢN</label>
+            <input type="text" name="user_login" value="" autofocus="">
+        </div>
+        <div class="form-control">
+            <label>MẬT KHẨU</label>
+            <input type="password" name="password">
+        </div>
+        <div class="form-button">
+            <div>
+                <p style="color: red">@TempData["temp"]</p>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">ĐĂNG NHẬP</button>
+            </div>
+        </div>
+    </form>
+</div>
+

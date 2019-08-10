@@ -1,4 +1,5 @@
 ﻿
+
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,18 +24,20 @@
     <tbody>
         @for (var i = 0; i < ViewBag.result.Rows.Count; i++)
         {
-            <tr>
-                <td>@ViewBag.result.Rows[i][0]</td>
-                <td>@ViewBag.result.Rows[i][1]</td>
-                <td>@ViewBag.result.Rows[i][2]</td>
-                <td>@ViewBag.result.Rows[i][3] giờ</td>
-                <td>@ViewBag.result.Rows[i][4]</td>
-                <td>@ViewBag.result.Rows[i][5]</td>
-                <td>@ViewBag.result.Rows[i][6]</td>
-                <td>@ViewBag.result.Rows[i][7]</td>
-                <td>@Html.DropDownList("Ghe", (IEnumerable<SelectListItem>) @ViewBag.result.Rows[i][8])</td>
-                <td><button class="btn btn-success"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
-            </tr>
+            @*<form action="~/Home/BookVe">*@
+                <tr id="@ViewBag.result.Rows[i][8]">
+                    <td>@ViewBag.result.Rows[i][0]</td>
+                    <td>@ViewBag.result.Rows[i][1]</td>
+                    <td>@ViewBag.result.Rows[i][2]</td>
+                    <td>@ViewBag.result.Rows[i][3] giờ</td>
+                    <td>@ViewBag.result.Rows[i][4]</td>
+                    <td>@ViewBag.result.Rows[i][5]</td>
+                    <td>@ViewBag.result.Rows[i][6]</td>
+                    <td>@ViewBag.result.Rows[i][7]</td>
+                    <td>@Html.DropDownList("Ghe", (IEnumerable<SelectListItem>)@ViewBag.list[i])</td>
+                    <td><button class="btn btn-success" onclick="book(@ViewBag.result.Rows[i][8])"><i class="fas fa-plus-circle"></i> Mua vé</button></td>
+                </tr>
+            @*</form>*@
         }
     </tbody>
 </table>
@@ -43,4 +46,22 @@
     $(document).ready(function () {
         $('#chuyenXe').DataTable();
     });
+
+    function book(maChuyen)
+    {
+        var ghe = $("#" + maChuyen).find('select').val();
+        alert("Đặt ghế " + ghe + ", chuyến có mã chuyến " + maChuyen);
+        $.ajax({
+            url:"http://localhost:64193/Home/BookVe",
+            dataType: 'text',
+            data : {GHE : ghe, MACHUYEN : maChuyen},
+            type : "post",
+            success: function(data){
+                if(data == "success")
+                    alert("Đặt vé thành công !");
+                else
+                  window.location.href = "http://localhost:64193/Home/Login";
+            },
+        });
+    }
 </script>

@@ -143,6 +143,29 @@ namespace WebApplication1
             }
         }
 
+        public void executeNonQuery(string str)
+        {
+            open();
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = str;
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                
+            }
+            finally
+            {
+                close();
+            }
+        }
+
+
         public int SoGhe(string maChuyen)
         {
             int i = -1;

@@ -14,6 +14,9 @@ namespace WebApplication1.Controllers
         LoadDBData load = new LoadDBData();
         public ActionResult Index()
         {
+            //Session["Admin"] = null;
+            if (Session["Admin"] == null)
+                return RedirectToAction("Login", "Admin");
             return View();
         }
 
@@ -45,6 +48,29 @@ namespace WebApplication1.Controllers
         {
             ViewBag.result = load.loadTable("ChuyenXe");
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult checkAccount(string user_login, string password)
+        {
+            string str = "";
+            var res = load.login(new string[] { user_login, password });
+            if (res == 0)
+            {
+                str = "Đăng nhập thất bại! Tên đăng nhập hoặc mật khẩu không chính xác";
+                TempData["temp"] = str;
+            }
+            else if (res == 2)
+            {
+                //string[] KH = load.getInfoKH(new string[] { user_login });
+                Session["Admin"] = res.ToString();
+                return RedirectToAction("Index","Admin");
+            }
+            return RedirectToAction("Login","Admin");
         }
     }
 }
